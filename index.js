@@ -19,6 +19,24 @@ function plus3home() {
     homeScore.textContent = scoreHome;
 }
 
+function minus1home() {
+    console.log("button clicked");
+    scoreHome = scoreHome-1;
+    homeScore.textContent = scoreHome;
+}
+
+function minus2home() {
+    console.log("button clicked");
+    scoreHome = scoreHome-2;
+    homeScore.textContent = scoreHome;
+}
+
+function minus3home() {
+    console.log("button clicked");
+    scoreHome = scoreHome-3;
+    homeScore.textContent = scoreHome;
+}
+
 const guestScore = document.getElementById("guestScore");
 let scoreGuest = 0
 
@@ -46,6 +64,24 @@ function newgame() {
     homeScore.textContent = scoreHome;
     guestScore.textContent = scoreGuest;
 }
+
+function minus1guest() {
+    console.log("button clicked");
+    scoreGuest = scoreGuest-1;
+    guestScore.textContent = scoreGuest;
+}
+
+function minus2guest() {
+    console.log("button clicked");
+    scoreGuest = scoreGuest-2;
+    guestScore.textContent = scoreGuest;
+}
+
+function minus3guest() {
+    console.log("button clicked");
+    scoreGuest = scoreGuest-3;
+    guestScore.textContent = scoreGuest;
+} 
 
 let hlHome = document.getElementById("homeScore")
 

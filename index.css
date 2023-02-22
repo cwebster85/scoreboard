@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-image: url("https://res.cloudinary.com/drirexwsz/image/upload/v1677071638/59960822d12462e0ed794eb5d8554e5e_qkzjks.jpg");
 }
 
 h3 {
@@ -49,7 +50,29 @@ h3 {
     margin-left: 20px;
 }
 
+.minus-buttons {
+    width: 160px;
+    height: 5px;
+    font-family: 'Cursed Timer ULiL';
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
 #plus1home, #plus2home, #plus3home {
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #9AABD8;
+    border-radius: 5px;
+    font-family: 'Cursed Timer ULiL';
+    background: none;
+    color: #9AABD8;
+}
+
+#minus1home, #minus2home, #minus3home {
     box-sizing: border-box;
     width: 45px;
     height: 45px;
@@ -71,9 +94,20 @@ h3 {
     color: #9AABD8;
 }
 
+#minus1guest, #minus2guest, #minus3guest {
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #9AABD8;
+    border-radius: 5px;
+    font-family: 'Cursed Timer ULiL';
+    background: none;
+    color: #9AABD8;
+}
+
 .new-game {
     position: absolute;
-    margin-top: 400px;
+    margin-top: 450px;
     font-size: 32px;
     padding: 6px;
     border: 2px solid #080001;
@@ -81,6 +115,21 @@ h3 {
     font-family: 'Cursed Timer ULiL';
     background: none;
     color: #080001;
+    width: 180px;
+    text-align: center;
+    padding: 2px;
+}
+
+.deduct {
+    position: absolute;
+    margin-top: 300px;
+    font-size: 32px;
+    padding: 6px;
+    border: 2px solid #080001;
+    border-radius: 5px;
+    font-family: 'Cursed Timer ULiL';
+    background: none;
+    color: #9AABD8;
     width: 180px;
     text-align: center;
     padding: 2px;
