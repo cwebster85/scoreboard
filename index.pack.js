@@ -73,111 +73,66 @@
 "use strict";
 
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+var myEmojis = ["👨‍💻", "⛷", "🍲"];
+var emojiContainer = document.getElementById("emoji-container");
+var emojiInput = document.getElementById("emoji-input");
+var pushBtn = document.getElementById("push-btn");
+var unshiftBtn = document.getElementById("unshift-btn");
+var popBtn = document.getElementById("pop-btn");
+var shiftBtn = document.getElementById("shift-btn");
 
-var characters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?", "/"];
-
-var passwordOneEl = document.getElementById("password1");
-var passwordTwoEl = document.getElementById("password2");
-
-function passwordGenerator() {
-
-  function randomNumber() {
-    var rand = Math.floor(Math.random() * characters.length);
-    return rand;
-  }
-
-  var password1 = "";
-  var password2 = "";
-
-  for (var i = 0; i < characters.length; i++) {
-    password1 += characters[randomNumber()];
-    password2 += characters[randomNumber()];
-    if (password1.length > 15 && password2.length > 15) {
-      passwordOneEl.textContent = password1;
-      passwordTwoEl.textContent = password2;
-      break;
+function renderEmojis() {
+    emojiContainer.innerHTML = "";
+    for (var i = 0; i < myEmojis.length; i++) {
+        var emoji = document.createElement('span');
+        emoji.textContent = myEmojis[i];
+        emojiContainer.append(emoji);
     }
-  }
 }
 
-passwordGenerator();
+renderEmojis();
 
-var text = document.getElementById('password1').innerHTML;
-var copyContent = function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.prev = 0;
-            _context.next = 3;
-            return navigator.clipboard.writeText(text);
+pushBtn.addEventListener("click", function () {
+    if (emojiInput.value) {
+        myEmojis.push(emojiInput.value);
+        emojiInput.value = "";
+        renderEmojis();
+    }
+});
 
-          case 3:
-            console.log('Content copied to clipboard');
-            _context.next = 9;
-            break;
+// unshiftBtn.addEventListener("click", function(){
+//     if (emojiInput.value) {
+//         myEmojis.unshift(emojiInput.value)
+//         emojiInput.value = ""
+//         renderEmojis()
+//     }
+// })
 
-          case 6:
-            _context.prev = 6;
-            _context.t0 = _context["catch"](0);
+// popBtn.addEventListener("click", function() {
+//     myEmojis.pop()
+//     renderEmojis()
+// })
 
-            console.error('Failed to copy: ', _context.t0);
+shiftBtn.addEventListener("click", function () {
+    myEmojis.shift();
+    renderEmojis();
+});
 
-          case 9:
-            window.location.reload();
+function addEmoji(emoji) {
+    var inputEle = document.getElementById('emoji-input');
 
-          case 10:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee, undefined, [[0, 6]]);
-  }));
+    input.value += emoji;
+}
 
-  return function copyContent() {
-    return _ref.apply(this, arguments);
-  };
-}();
+function toggleEmojiDrawer() {
+    var drawer = document.getElementById('drawer');
 
-var text2 = document.getElementById('password2').innerHTML;
-var copyContent2 = function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-    return regeneratorRuntime.wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.prev = 0;
-            _context2.next = 3;
-            return navigator.clipboard.writeText(text2);
-
-          case 3:
-            console.log('Content copied to clipboard');
-            _context2.next = 9;
-            break;
-
-          case 6:
-            _context2.prev = 6;
-            _context2.t0 = _context2["catch"](0);
-
-            console.error('Failed to copy: ', _context2.t0);
-
-          case 9:
-            window.location.reload();
-
-          case 10:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2, undefined, [[0, 6]]);
-  }));
-
-  return function copyContent2() {
-    return _ref2.apply(this, arguments);
-  };
-}();
+    if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+    } else {
+        drawer.classList.add('hidden');
+    }
+}
 
 /***/ })
 /******/ ]);
